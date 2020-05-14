@@ -5,9 +5,9 @@ on:
     types: [n1稳定版,sshn1稳定版]
 #  release:
 #    types: published
-#  push:
-#    branches:
-#      - master
+  push:
+    branches:
+      - master
 #    paths:
 #      - 'n1稳定版.config'
   schedule:
