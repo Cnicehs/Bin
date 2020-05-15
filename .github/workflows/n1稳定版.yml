@@ -24,7 +24,7 @@ env:
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_WETRANSFER: false
-  UPLOAD_COWTRANSFER: false
+  UPLOAD_COWTRANSFER: true
   TZ: Asia/Shanghai
   FILE_NAME: n1稳定版
 
