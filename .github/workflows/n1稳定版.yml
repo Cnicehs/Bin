@@ -1,4 +1,4 @@
-name: n1稳定版
+name: Rsp
 
 on:
   repository_dispatch:
@@ -123,7 +123,7 @@ jobs:
       uses: actions/upload-artifact@master
       if: steps.organize.outputs.status == 'success' && !cancelled()
       with:
-        name: n1稳定版
+        name: Rsi
         path: ${{ env.FIRMWARE }}
 
     #- name: Create release
