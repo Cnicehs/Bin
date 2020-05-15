@@ -126,18 +126,18 @@ jobs:
         name: n1稳定版
         path: ${{ env.FIRMWARE }}
 
-    - name: Create release
-      uses: ncipollo/release-action@v1
-      with:
-        name: ${{ env.DATE }} 🚀 n1稳定版 | 自动编译
-        allowUpdates: true
-        tag: n1稳定版
-        commit: master
-        token: ${{ secrets.RELEASES_TOKEN }}
-        body: |
-          当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
-          ${{ env.useVersionInfo }}
-        artifacts: ${{ env.FIRMWARE }}/*
+    #- name: Create release
+    #  uses: ncipollo/release-action@v1
+    #  with:
+    #    name: ${{ env.DATE }} 🚀 n1稳定版 | 自动编译
+    #    allowUpdates: true
+    #    tag: n1稳定版
+    #    commit: master
+    #    token: ${{ secrets.RELEASES_TOKEN }}
+    #    body: |
+    #      当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
+    #      ${{ env.useVersionInfo }}
+    #    artifacts: ${{ env.FIRMWARE }}/*
 
     - name: Upload firmware to cowtransfer #奶牛快传
       if: steps.organize.outputs.status == 'success' && env.UPLOAD_COWTRANSFER == 'true' && !cancelled()
@@ -153,5 +153,5 @@ jobs:
         ./transfer wet -s -p 16 --no-progress ${FIRMWARE} 2>&1 | tee wetransfer.log
         echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
 
-    - name: WeChat notification
-      run: curl https://sc.ftqq.com/${{ secrets.ServerChan }}.send?text=${{ env.FILE_NAME }}发布成功-编译结束
+    #- name: WeChat notification
+    #  run: curl https://sc.ftqq.com/${{ secrets.ServerChan }}.send?text=${{ env.FILE_NAME }}发布成功-编译结束
